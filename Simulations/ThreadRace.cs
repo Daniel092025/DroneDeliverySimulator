@@ -27,6 +27,14 @@ public class ThreadRace
 
     private static void FlyDrone(DroneModel drone)
     {
-        Console.WriteLine($"{drone.Name} tar av!");
+        Console.WriteLine($"[{drone.Name}] tar av!");
+
+        for (int checkpoint = 1; checkpoint <= drone.MaxCheckPoints; checkpoint++)
+        {
+            Thread.Sleep(drone.DelayMs);
+            Console.WriteLine($"[{drone.Name}] Checkpoint {checkpoint}/{drone.MaxCheckPoints}");
+        }
+
+        Console.WriteLine($"{drone.Name} Landet trygt!");
     }
 }
