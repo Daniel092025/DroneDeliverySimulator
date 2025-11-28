@@ -71,7 +71,7 @@ public class TaskCompletion
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[{drone.Name}] BOOM? {ex.Message}");
+                Console.WriteLine($"[{drone.Name}] 💥 Oh snap 💥 {ex.Message}");
 
                 tcs.SetException(ex);
             }
