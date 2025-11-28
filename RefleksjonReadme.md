@@ -16,5 +16,10 @@
 - Vil si at "komplesiteten" er større. Mer kode, men har mye mer kontroll.
 - La til en ekstra feil etter sikker feil til "Delta" på checkpoint 3. En 50% sjanse til å feile etter checkpoint 2
 
-3. 
+3. AsyncAwait
+- Er mindre kode enn oppgave 2 (B). Jeg syns det er lettere å mer oversiktlig å lese koden. 
+- Er mer automatikk i exception handlingen.
+- Jeg tror vedlikehold av koden blir mye lettere, siden det generelt mindre kode og den ser cleanere / mer oversiktlig ut.
+
+
 

@@ -30,7 +30,7 @@ public class AsyncAwait
 
         catch (Exception ex)
         {
-            Console.WriteLine($"\n Dronene feilet: {ex.Message}");
+            Console.WriteLine($"\nDronene som feilet: {ex.Message}");
             Console.WriteLine("Andre droner kan også ha feilet, men vi ser bare første exception");
         }
     }

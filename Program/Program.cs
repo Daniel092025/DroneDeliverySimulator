@@ -19,6 +19,10 @@ switch (choice)
     TaskCompletion.Run();
     break;
 
+    case "C":
+    await AsyncAwait.RunAsync();
+    break;
+
     default:
         Console.WriteLine("Ikke gyldig valg");
         break;
