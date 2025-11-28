@@ -15,6 +15,10 @@ switch (choice)
     ThreadRace.Run();
     break;
 
+    case "B":
+    TaskCompletion.Run();
+    break;
+
     default:
         Console.WriteLine("Ikke gyldig valg");
         break;
