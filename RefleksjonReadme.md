@@ -22,20 +22,62 @@
 - Jeg tror vedlikehold av koden blir mye lettere, siden det generelt mindre kode og den ser cleanere / mer oversiktlig ut.
 - Har lagt inn en feil aka "shouldFailAtCheckpoint.
 
+4. Control Tower API
+- 
+- Løste timeouts / feil med 3 metoder. 
+- Satte Timeout til 10 sekunder, så den ikke bruker for lang tid eller for kort tid. Så den timer ut.
+- Noe av utfordringene med konsumere APIer, er at du trenger forskjellig timeouts. Avhenging av side og hva du skal hente. 
+    - For kort, falske feil
+    - For lenge, kan oppleves negativt (vente for lenge)
+- Jeg bruke ganske "simpel" side til HTTP kall. 
+    - Men med større / andre sider kan det komme masse forskjellige errorer. Så å catche alle disse kan bli masse og mye kode. 
+    samt å finne ut hva man skal catche. Blir egen feilsøking bare det.
+    - Hvordan skal man logge dette også, dette kan bli mye logg og komplisert. Kanskje noe sensitivt kan komme i logg?
+
+<br>
+
+<details>
+<summary><i> Kode klikk for å expande </summary>
+```csharp
+        catch (HttpRequestException ex)
+        {
+            Console.WriteLine($"Nettverk Error: {ex.Message}");
+            return null;
+        }
+        catch(TaskCanceledException)
+        {
+            Console.WriteLine($"Request Timeout: Kontrolltårnet svarer ikke!");
+            return null;
+        }
+        catch (JsonException ex)
+        {
+            Console.WriteLine($"Feilet med å parse værdata: {ex.Message}");
+            return null;
+        }
+```
+</details>
+
+<br><br>
+De 3 metodene er Nettverks feil og timeout (koder sånn som 4** og 5**) og dårlig JSON.
+
+
 
 ## ReadMe
 
 Ganske enkelt oppsett på å teste hver del. 
 Er bare å kjøre kommando:
 Dotnet run.
-Så er hvert valg forklart enkelt fra A-C.
+Så er hvert valg forklart enkelt fra A-D.
 - Via switch case.
+- While loop, så kjører til du stopper selv.
+- Kontrolltårnet henter værdata fra en lokasjon. Så dette kan endres i koden med, koordinater. Har lagt disse i kommentar ved koden.
+- Er lagt med en liten Joke API også. Hvis du tørr.
+
+På spørsmålet om hvor man eventuelt ville ha brukt Task/TCS over Async/Await. Så vil jeg si i eldre miljøer som kanskje har dette.
+Og bygge videre på dette. Eller hvis du vil kjøre tasks manuelt.
 
 
 
-
-<span> Hello <span>
-<span> hi <span>
 
 
 
