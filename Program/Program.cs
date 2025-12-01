@@ -13,7 +13,10 @@ while (fortsetteKommando)
     Console.WriteLine("B. - Tower Says Go! (Task)");
     Console.WriteLine("C. - Async Orchestration");
     Console.WriteLine("D. - Control Tower API");
-    Console.WriteLine("E. - Exit");
+    Console.WriteLine("\n Joke API, brought to you by AI. Cause I ran out of time and wanted to test");
+    Console.WriteLine("E. Please don't choose this");
+    Console.WriteLine("F. No, just no");
+    Console.WriteLine("G. - Exit");
 
     var choice = Console.ReadLine()?.ToUpper();
 
@@ -36,7 +39,15 @@ while (fortsetteKommando)
         break;
 
         case "E":
-        Console.WriteLine("\n 🚁Takk for at du brukte Drone Delivery Simulator!🚁");
+        await JokeApi.RunBasicJokeDemoAsync();  
+        break;
+
+        case "F":
+        await JokeApi.RunProgrammingJokesDemoAsync();  
+        break;
+
+        case "G":
+        Console.WriteLine("\n 🚁 Takk for at du brukte Drone Delivery Simulator!🚁");
         fortsetteKommando = false;
         break;
 

@@ -14,6 +14,13 @@ public class ControlTower
 
         using var httpClient = new HttpClient();
         var controlTower = new ControlTowerClient(httpClient);
+        
+        // Står på Oslo for the moment: 59.9139, 10.7522
+
+        // Andre byer man kan teste! ▶️
+        // New York: 40.7128, -74.0060
+        // Tokyo: 35.6762, 139.6503
+        // London: 51.5074, -0.1278
 
         double latitude = 59.9139;
         double longitude = 10.7522;
