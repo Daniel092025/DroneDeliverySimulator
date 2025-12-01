@@ -22,6 +22,10 @@ switch (choice)
     case "C":
     await AsyncAwait.RunAsync();
     break;
+    
+    case "D":
+    await ControlTower.RunAsync();
+    break;
 
     default:
         Console.WriteLine("Ikke gyldig valg");
