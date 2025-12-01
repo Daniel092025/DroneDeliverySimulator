@@ -1,34 +1,54 @@
-﻿using Simulations;
+﻿using System.Drawing;
+using Simulations;
 
-Console.WriteLine("Drone Delivery Simulator \n");
-Console.WriteLine("Velg en simulering");
-Console.WriteLine("A. - Thread Race");
-Console.WriteLine("B. - Tower Says Go! (Task)");
-Console.WriteLine("C. - Async Orchestration");
-Console.WriteLine("D. - Control Tower API");
+bool fortsetteKommando = true;
 
-var choice = Console.ReadLine()?.ToUpper();
+Console.ForegroundColor = ConsoleColor.Yellow;
 
-switch (choice)
+while (fortsetteKommando)
 {
-    case "A":
-    ThreadRace.Run();
-    break;
+    Console.WriteLine("Drone Delivery Simulator \n");
+    Console.WriteLine("Velg en simulering");
+    Console.WriteLine("A. - Thread Race");
+    Console.WriteLine("B. - Tower Says Go! (Task)");
+    Console.WriteLine("C. - Async Orchestration");
+    Console.WriteLine("D. - Control Tower API");
+    Console.WriteLine("E. - Exit");
 
-    case "B":
-    TaskCompletion.Run();
-    break;
+    var choice = Console.ReadLine()?.ToUpper();
 
-    case "C":
-    await AsyncAwait.RunAsync();
-    break;
-    
-    case "D":
-    await ControlTower.RunAsync();
-    break;
-
-    default:
-        Console.WriteLine("Ikke gyldig valg");
+    switch (choice)
+    {
+        case "A":
+        ThreadRace.Run();
         break;
-}
 
+        case "B":
+        TaskCompletion.Run();
+        break;
+
+        case "C":
+        await AsyncAwait.RunAsync();
+        break;
+        
+        case "D":
+        await ControlTower.RunAsync();
+        break;
+
+        case "E":
+        Console.WriteLine("\n 🚁Takk for at du brukte Drone Delivery Simulator!🚁");
+        fortsetteKommando = false;
+        break;
+
+        default:
+            Console.WriteLine("Ikke gyldig valg");
+            break;
+    }
+    if (fortsetteKommando && choice != "E")
+    {
+        Console.WriteLine("\n\nTrykk en tast for å fortsette...");
+        Console.ReadKey();
+        Console.Clear();
+    }
+}
+Console.ResetColor();
