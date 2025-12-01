@@ -1,6 +1,7 @@
 ﻿using System.Dynamic;
 using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
+using System.Text.Json.Serialization;
 
 namespace Models;
 
@@ -20,13 +21,19 @@ public class DroneModel
 
 public class WeatherResponse
 {
+    [JsonPropertyName("current")]
     public CurrentWeather? Current {get; set;}
 }
 
 public class CurrentWeather
 {
+    [JsonPropertyName("temperature_2m")]
     public double Temperature {get; set;}
+
+    [JsonPropertyName("wind_speed_10m")]
     public double WindSpeed {get; set;}
+
+    [JsonPropertyName("weather_code")]
     public int WeatherCode {get; set;}
 }
 
