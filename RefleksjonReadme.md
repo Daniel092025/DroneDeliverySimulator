@@ -20,6 +20,22 @@
 - Er mindre kode enn oppgave 2 (B). Jeg syns det er lettere å mer oversiktlig å lese koden. 
 - Er mer automatikk i exception handlingen.
 - Jeg tror vedlikehold av koden blir mye lettere, siden det generelt mindre kode og den ser cleanere / mer oversiktlig ut.
+- Har lagt inn en feil aka "shouldFailAtCheckpoint.
+
+
+## ReadMe
+
+Ganske enkelt oppsett på å teste hver del. 
+Er bare å kjøre kommando:
+Dotnet run.
+Så er hvert valg forklart enkelt fra A-C.
+- Via switch case.
+
+
+
+
+<span> Hello <span>
+<span> hi <span>
 
 
 
