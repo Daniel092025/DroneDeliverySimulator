@@ -38,7 +38,28 @@
 
 <details>
 <summary><i> Kode klikk for å expande </summary>
-```csharp
+
+public async Task <WeatherResponse?> GetWeatherAsync(double latitude, double longitude)
+    {
+        try
+        {
+            Console.WriteLine($"Kontakter Kontrolltårnet for værdata...");
+
+            var url = $"{BaseUrl}?latitude={latitude}&longitude={longitude}&current=temperature_2m,wind_speed_10m,weather_code";
+
+            var response = await _httpClient.GetAsync(url);
+
+            response.EnsureSuccessStatusCode();
+
+            var weatherData = await response.Content.ReadFromJsonAsync<WeatherResponse>();
+
+            if(weatherData?.Current != null)
+            {
+                var condition = WeatherInterpreter.GetCondition(weatherData.Current.WeatherCode);
+                Console.WriteLine($"Værmelding motatt: {condition}, {weatherData.Current.Temperature}°C, Wind: {weatherData.Current.WindSpeed} km/t");
+            }
+            return weatherData;
+        }
         catch (HttpRequestException ex)
         {
             Console.WriteLine($"Nettverk Error: {ex.Message}");
@@ -54,11 +75,14 @@
             Console.WriteLine($"Feilet med å parse værdata: {ex.Message}");
             return null;
         }
-```
+    }
+
+
 </details>
 
 <br><br>
-De 3 metodene er Nettverks feil og timeout (koder sånn som 4** og 5**) og dårlig JSON.
+
+*De 3 metodene er Nettverks feil og timeout (koder sånn som 4** og 5**) og dårlig JSON.*
 
 
 
