@@ -15,11 +15,7 @@ public class ControlTowerClient
         _httpClient.Timeout = TimeSpan.FromSeconds(10);
     }
 
-    /// <summary>
-    /// Gets weather data for a location (affects drone delays)
-    /// </summary>
-    /// <param name="latitude">Latitude of flight zone</param>
-    /// <param name="longitude">Longitude of flight zone</param>
+ 
     
     public async Task <WeatherResponse?> GetWeatherAsync(double latitude, double longitude)
     {
