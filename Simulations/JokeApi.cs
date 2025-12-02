@@ -45,7 +45,7 @@ public class JokeApi
  
     public static async Task RunProgrammingJokesDemoAsync()
     {
-        Console.WriteLine("=== PART E: Programming Jokes Demo ===\n");
+        Console.WriteLine("=== PART F: Programming Jokes Demo ===\n");
 
         using var httpClient = new HttpClient();
         var jokeClient = new JokeClient(httpClient);
