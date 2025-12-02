@@ -37,8 +37,9 @@
 <br>
 
 <details>
-<summary><i> Kode klikk for å expande </summary>
+<summary><i> Kode: Klikk for å ekspandere </summary>
 
+<br>
 public async Task <WeatherResponse?> GetWeatherAsync(double latitude, double longitude)
     {
         try
@@ -76,6 +77,7 @@ public async Task <WeatherResponse?> GetWeatherAsync(double latitude, double lon
             return null;
         }
     }
+
 
 
 </details>
