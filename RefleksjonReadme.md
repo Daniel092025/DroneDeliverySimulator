@@ -8,6 +8,7 @@
 - I denne så laget jeg 3 droner (startet med 2, så added jeg en til etterhvert bare for).
 - Og hver drone har en delay i MS. Som gjør at de "starter" med forskjellig forsinkelse.
 - Hva skjer om man fjerner Join? Første man merker er at beskjeded "Alle droner har landet" kommer rett etter at det starter å fly. Før checkpoints blir fullført. Legger du den til lander alle etter de har fullført checkpointsene før denne beskjeden kommer.
+- La til en stopwatch på ThreadRace, for gøy.
 
 2. TaskCompletion
 - I denne laget jeg også 3 droner, der en av dem har en negativ forsinkelse. 
@@ -96,6 +97,7 @@ Dotnet run.
 Så er hvert valg forklart enkelt fra A-D.
 - Via switch case.
 - While loop, så kjører til du stopper selv.
+- La til en stopwatch på ThreadRace, for å teste.
 - Kontrolltårnet henter værdata fra en lokasjon. Så dette kan endres i koden med, koordinater. Har lagt disse i kommentar ved koden.
 - Er lagt med en liten Joke API også. Hvis du tørr.
 

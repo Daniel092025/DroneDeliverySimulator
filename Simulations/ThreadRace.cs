@@ -1,4 +1,5 @@
 ﻿using Models;
+using System.Diagnostics;
 
 namespace Simulations;
 
@@ -18,6 +19,8 @@ public class ThreadRace
 
        Console.WriteLine("Starter drone flyving");
 
+       Stopwatch stopwatch = Stopwatch.StartNew();
+
        thread1.Start();
        thread2.Start();
        thread3.Start();
@@ -27,7 +30,12 @@ public class ThreadRace
        thread2.Join();
        thread3.Join();
 
+       stopwatch.Stop();
+
        Console.WriteLine("Alle dronene har landet");
+       Console.ForegroundColor = ConsoleColor.Green;
+       Console.WriteLine($"Total tid: {stopwatch.ElapsedMilliseconds} ms({stopwatch.Elapsed.TotalSeconds:F2} sekunder)");
+       Console.ResetColor();
     }
 
     private static void FlyDrone(DroneModel drone)
