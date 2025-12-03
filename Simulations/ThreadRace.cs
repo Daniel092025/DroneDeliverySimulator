@@ -33,9 +33,10 @@ public class ThreadRace
        stopwatch.Stop();
 
        Console.WriteLine("Alle dronene har landet");
+       ConsoleColor originalColor = Console.ForegroundColor;
        Console.ForegroundColor = ConsoleColor.Green;
        Console.WriteLine($"Total tid: {stopwatch.ElapsedMilliseconds} ms({stopwatch.Elapsed.TotalSeconds:F2} sekunder)");
-       Console.ResetColor();
+       Console.ForegroundColor = originalColor;
     }
 
     private static void FlyDrone(DroneModel drone)
